@@ -1,3 +1,3 @@
 # 500lines
 
-for my study
+python programing, for my study.
