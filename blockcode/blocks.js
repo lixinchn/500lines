@@ -21,16 +21,6 @@
         return null;
     };
 
-    /* Debugging only, remove soon */
-  function elname(el){
-    return el.localName + '.' + el.className;
-  }
-
-  /* Debugging only, remove soon */
-  function evlog(ev){
-    console.log(ev.type + ': ' + elname(ev.target));
-  }
-
   var dragTarget = null;
   var dragType = null;
 
@@ -50,7 +40,6 @@
     }else{
       evt.dataTransfer.effectAllowed = 'move';
     }
-    evlog(evt);
   }
   document.addEventListener('dragstart', dragStart, false);
 
@@ -61,7 +50,6 @@
   document.addEventListener('drag', drag, false);
 
   function dragEnter(evt){
-    // evlog(evt);
     if (matches(evt.target, '.menu, .script')){
       evt.target.classList.add('over');
     }else{
@@ -71,9 +59,7 @@
           over.classList.remove('over');
         }
         evt.target.classList.remove('over');
-        console.log('left all drag targets');
       }else{
-        console.log('mysterious');
       }
     }
     if (evt.preventDefault) {
@@ -84,7 +70,6 @@
   document.addEventListener('dragenter', dragEnter, false);
 
   function dragOver(evt){
-    evlog(evt);
     if (!matches(evt.target, '.menu, .menu *, .script, .script *')) return;
     if (evt.preventDefault) {
       evt.preventDefault(); // Necessary. Allows us to drop.
@@ -123,13 +108,11 @@
     }else{
         // If dragging from menu to menu, do nothing
     }
-    evlog(evt);
   };
   document.addEventListener('drop', drop, false);
 
   function dragEnd(evt){
     evt.target.style.opacity = '1.0';
-    evlog(evt);
   }
   document.addEventListener('dragend', dragEnd, false);
 })(window);

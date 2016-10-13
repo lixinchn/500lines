@@ -33,15 +33,35 @@
   };
 
   Turtle.prototype.draw = function() {
-    // draw the turtle, default turtle is a triangle
+    this.penUp();
+    this.forward(5);
+    this.penDown();
+    this.left(-150);
+    this.forward(12);
+    this.left(-120);
+    this.forward(12);
+    this.left(-120);
+    this.forward(12);
+    this.left(30);
+    this.penUp();
+    this.forward(-5);
+    this.penDown();
   };
 
-  Turtle.prototype.penup = function() {
+  Turtle.prototype.penUp = function() {
     this.pen = false;
   };
 
-  Turtle.prototype.pendown = function() {
+  Turtle.prototype.penDown = function() {
     this.pen = true;
+  };
+
+  Turtle.prototype.hide = function() {
+    this.visible = false;
+  };
+
+  Turtle.prototype.show = function() {
+    this.visible = true;
   };
 
   Turtle.prototype.forward = function(distance) {
@@ -67,11 +87,12 @@
   function clear() {
     ctx.save();
     ctx.fillStyle = 'white';
-    ctx.fill(0, 0, WIDTH, HEIGHT);
+    console.log('ctx.fillRect(0,0,%s,%s', WIDTH, HEIGHT);
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
     ctx.restore();
     ctx.moveTo(turtle.position.x, turtle.position.y);
     turtle.reset();
-    turtle.draw();
+    // turtle.draw();
   }
 
   // initialization
@@ -79,4 +100,5 @@
   global.turtle = new Turtle();
   global.ctx = ctx;
   clear();
+  turtle.draw();
 })(window);
