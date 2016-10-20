@@ -56,7 +56,7 @@ def poll():
                     commit = f.readline()
                 response = helpers.communicate(dispatcher_host,
                                                 int(dispatcher_port),
-                                                'dispatch: %s' % commit)
+                                                'dispatch:%s' % commit)
                 if response != 'OK':
                     raise Exception('Could not dispatch the test: %s' % response)
                 print 'dispatched!'
