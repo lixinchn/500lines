@@ -16,7 +16,7 @@ var ocrDemo = {
   trainingRequestCount: 0,
 
   onLoadFunction: function() {
-    this.resetCanvas;
+    this.resetCanvas();
   },
 
   resetCanvas: function() {
