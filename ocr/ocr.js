@@ -91,7 +91,7 @@ var ocrDemo = {
       return;
     }
     this.trainArray.push({'y0': this.data, 'label': parseInt(digitVal)});
-    this.trainingRequestCount++;
+    ++this.trainingRequestCount;
 
     // Time to send a traiging batch to server
     if (this.trainingRequestCount == this.BATCH_SIZE) {
