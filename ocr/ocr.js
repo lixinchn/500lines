@@ -95,7 +95,7 @@ var ocrDemo = {
 
     // Time to send a traiging batch to server
     if (this.trainingRequestCount == this.BATCH_SIZE) {
-      alert('sending training data to server...');
+      // alert('sending training data to server...');
       var json = {
         trainArray: this.trainArray,
         train: true
@@ -137,7 +137,7 @@ var ocrDemo = {
 
   sendData: function(json) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('POST', this.HOST + ':' + this.PORT, false);
+    xmlHttp.open('POST', this.HOST + ':' + this.PORT);
     xmlHttp.onload = function() {
       this.receiveResponse(xmlHttp);
     }.bind(this);
@@ -147,8 +147,8 @@ var ocrDemo = {
     }.bind(this);
 
     var msg = JSON.stringify(json);
-    xmlHttp.setRequestHeader('Content-length', msg.length);
-    xmlHttp.setRequestHeader('Connection', 'close');
+    // xmlHttp.setRequestHeader('Content-length', msg.length);
+    // xmlHttp.setRequestHeader('Connection', 'close');
     xmlHttp.send(msg);
   }
 }

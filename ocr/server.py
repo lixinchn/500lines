@@ -1,6 +1,6 @@
 import BaseHTTPServer
 import json
-from ocr import OCRNeuraNetwork
+from ocr import OCRNeuralNetwork
 import numpy as np
 
 
@@ -19,11 +19,11 @@ data_labels = data_labels.tolist()
 # If a neural network file does not exist, train it using all 5000 existing data samples.
 # Based on data collected from neural_network_design.py, 15 is the optimal number
 # for hidden nodes
-nn = OCRNeuraNetwork(HIDDEN_NODE_COUNT, data_matrix, data_labels, list(range(5000)))
+nn = OCRNeuralNetwork(HIDDEN_NODE_COUNT, data_matrix, data_labels, list(range(5000)))
 
 class JSONHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_POST(s):
-        resposne_code = 200
+        response_code = 200
         response = ''
         var_len = int(s.headers.get('Content-Length'))
         content = s.rfile.read(var_len)

@@ -41,9 +41,9 @@ class OCRNeuralNetwork:
             self.hidden_layer_bias = self._rand_initialize_weights(1, 10)
 
             # Train using sample data
-            TrainData = namedtuple('TrainData', ['y0', 'label'])
-            self.train([TrainData(self.data_matrix[i], int(self.data_labels[i])) for i in training_indices])
-            self.save()
+            # TrainData = namedtuple('TrainData', ['y0', 'label'])
+            # self.train([TrainData(self.data_matrix[i], int(self.data_labels[i])) for i in training_indices])
+            # self.save()
         else:
             self._load()
 
